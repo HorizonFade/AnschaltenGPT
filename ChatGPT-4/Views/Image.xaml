@@ -27,7 +27,7 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
         <TextBlock Name="ImageText" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"
-                   Text="Schreibe unten in die Textbox, um ein Bild zu generieren" Background="Transparent"
+                   Text="Write into the Textbox to generate a picture" Background="Transparent"
                    HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"
                    FontFamily="Cascadia Code" FontSize="18" />
         <Image Name="AIImage" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Visibility="Hidden" Stretch="Uniform" />

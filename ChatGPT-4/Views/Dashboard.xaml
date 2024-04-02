@@ -12,7 +12,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Dies ist ein kleines Programm um ChatGPT zu nutzen" HorizontalAlignment="Center"
+        <TextBlock Text="This is a small program to use ChatGPT" HorizontalAlignment="Center"
                    VerticalAlignment="Bottom" Foreground="White" FontFamily="Cascadia Code" FontSize="18" />
         <TextBlock Grid.Row="1" Text="v1.0" HorizontalAlignment="Left"
                    VerticalAlignment="Bottom" Foreground="White" FontFamily="Cascadia Code" FontSize="12" Margin="10,0,0,0"/>

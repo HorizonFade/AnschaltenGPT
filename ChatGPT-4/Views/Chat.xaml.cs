@@ -19,7 +19,7 @@ namespace ChatGPT_4.Views;
 public partial class Chat : Page
 {
     
-    private readonly string _initialMessage = "Hi, wie kann ich dir helfen?";
+    private readonly string _initialMessage = "Hi, how can I help you?";
     private string? _modelDisplayName = "GPT-4-Turbo-Preview";
     private string? _modelValue;
     private string _apiKey;
@@ -159,7 +159,7 @@ public partial class Chat : Page
         }
         catch (Exception e)
         {
-            MessageBox.Show("Please enter a message", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Please enter a message!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             throw;
         }
         

@@ -28,7 +28,7 @@ public partial class Image : Page
         if (InputText.Text != "")
             await GenerateImageAsync();
         else
-            MessageBox.Show("Bitte eine Nachricht eingeben!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Please enter a message!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 
     private void Clear_Click(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ public partial class Image : Page
                     new ImageGenerationRequest(prompt,
                         Model.DallE_3, size: "1024x1024");
                 InputText.Clear();
-                ImageText.Text = "Warte auf Bildgenerierung...";
+                ImageText.Text = "Waiting for picture generation...";
                 AIImage.Visibility = Visibility.Visible;
 
                 var imageResult = await api.ImagesEndPoint.GenerateImageAsync(request);
@@ -70,7 +70,7 @@ public partial class Image : Page
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         else
-            MessageBox.Show("Bitte eine Nachricht eingeben!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Please enter a message!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 
     private void Save_Click(object sender, RoutedEventArgs e)
@@ -87,7 +87,7 @@ public partial class Image : Page
                         client.DownloadFile(_imageURL, saveFileDialog.FileName);
                     }
 
-                    MessageBox.Show($"Bild gespeichert unter: {saveFileDialog.FileName}", "Saved", MessageBoxButton.OK,
+                    MessageBox.Show($"Picture saved to: {saveFileDialog.FileName}", "Saved", MessageBoxButton.OK,
                         MessageBoxImage.Information);
                 }
             }
@@ -96,7 +96,7 @@ public partial class Image : Page
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         else
-            MessageBox.Show("Kein Bild generiert oder konnte nicht geladen werden", "Error", MessageBoxButton.OK,
+            MessageBox.Show("No picture could be generated or loaded", "Error", MessageBoxButton.OK,
                 MessageBoxImage.Error);
     }
 
@@ -104,7 +104,7 @@ public partial class Image : Page
     {
         AIImage.Source = null;
         _imageURL = "";
-        ImageText.Text = "Schreibe unten in die Textbox, um ein Bild zu generieren";
+        ImageText.Text = "Write into the Textbox to generate a picture";
         AIImage.Visibility = Visibility.Hidden;
         ImageText.Visibility = Visibility.Visible;
         SaveButton.Visibility = Visibility.Hidden;
