@@ -16,7 +16,7 @@ Add a new Folder named "Properties", in this Folder create a new Resource File c
 | `apiKey`           | `string` | Insert your OpenAI-API Key         |
 | `connectionString` | `string` | Insert your MySQL-ConnectionString |
 
-For the Table-Creation use the provided [anschalten.sql](anschalten.sql) file.
+For the Table-Creation use the provided [anschaltengpt.sql](anschaltengpt.sql) file.
 
 
 
