@@ -33,7 +33,7 @@ public partial class MainWindow : Window
         //key = "";
         key = Properties.Resources.apiKey;
         //connectionString = "";
-        connectionString= Properties.Resources.connectionString;
+        connectionString = Properties.Resources.connectionString;
     }
     private void DashboardButton_Click(object sender, RoutedEventArgs e)
     {
