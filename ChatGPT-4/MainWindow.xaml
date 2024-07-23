@@ -1,0 +1,175 @@
+﻿<Window x:Class="ChatGPT_4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="AnschaltenGPT" Height="630" Width="850" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown" MouseMove="Window_MouseMove" MouseUp="Window_MouseUp">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF076F6B" />
+            <GradientStop Color="#FF02302E" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="800" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Source="/Pictures/background.jpg" Stretch="Fill" />
+
+
+        <Rectangle Grid.Row="0" Grid.Column="0" Fill="#FF313131" Grid.ColumnSpan="2" />
+        <Rectangle Grid.Row="0" Grid.Column="0" Fill="#FF313131" Grid.RowSpan="3" />
+        <StackPanel Background="Transparent" Grid.Column="0" Grid.Row="1" Margin="0,40,0,0" Grid.RowSpan="2">
+            <Button Name="Dashboard" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1,1,1,1"
+                    Height="50" Width="50" Click="DashboardButton_Click" IsEnabled="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="close" Source="/Pictures/dashboard.png" Width="40" Height="40"
+                                   Stretch="Fill" />
+                            <Rectangle x:Name="hoverOverlay" Fill="Transparent" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hoverOverlay" Property="Fill">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#40aecf" Opacity="0.2" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="Chat" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1,1,1,1"
+                    Height="50" Width="50" Click="ChatButton_Click" IsEnabled="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="close" Source="/Pictures/chat.png" Width="30" Height="30" Stretch="Fill" />
+                            <Rectangle x:Name="hoverOverlay" Fill="Transparent" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hoverOverlay" Property="Fill">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#40aecf" Opacity="0.2" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="Image" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1,1,1,1"
+                    Height="50" Width="50" Click="ImageButton_Click" IsEnabled="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="close" Source="/Pictures/image.png" Width="35" Height="35" Stretch="Fill" />
+                            <Rectangle x:Name="hoverOverlay" Fill="Transparent" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hoverOverlay" Property="Fill">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#40aecf" Opacity="0.2" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="Settings"  Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="1,356,1,0"
+                    Height="50" Width="50" Click="SettingsButton_Click" IsEnabled="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="close" Source="/Pictures/settings.png" Width="30" Height="30" Stretch="Fill" />
+                            <Rectangle x:Name="hoverOverlay" Fill="Transparent" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hoverOverlay" Property="Fill">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#40aecf" Opacity="0.2" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+        </StackPanel>
+
+        <Image x:Name="Icon" Source="/Pictures/icon.png" Width="40" Height="40" Stretch="Fill" Grid.Row="0"
+               Grid.RowSpan="2" Grid.Column="0" Margin="7" VerticalAlignment="Top" HorizontalAlignment="Center" />
+        <Grid Grid.Row="0" Grid.Column="1" MouseDown="TopBar_MouseDown">
+            <Button Grid.Row="0" Grid.Column="1" Background="Transparent" VerticalAlignment="Center"
+                    HorizontalAlignment="Right" Margin="0,1,1,1" Click="CloseButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="close" Source="/Pictures/close.png" Width="28" Height="28" Stretch="Fill" />
+                            <Rectangle x:Name="hoverOverlay" Fill="Transparent" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hoverOverlay" Property="Fill">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#40aecf" Opacity="0.2" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1" Background="Transparent" VerticalAlignment="Center"
+                    HorizontalAlignment="Right" Margin="0,1,30,1" Click="MinimizeButton_Click" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="minimize" Source="/Pictures/minimize.png" Width="28" Height="28"
+                                   Stretch="Fill" />
+                            <Rectangle x:Name="hoverOverlay" Fill="Transparent" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hoverOverlay" Property="Fill">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#40aecf" Opacity="0.2" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Label Name="NaviLabel" Content="Login" Grid.Column="1" FontFamily="Consolas" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,0" FontSize="16" FontWeight="Bold" Foreground="White" />
+
+        <Frame x:Name="MainFrame" Grid.Column="2" Grid.Row="1" NavigationUIVisibility="Hidden" />
+
+    </Grid>
+</Window>
